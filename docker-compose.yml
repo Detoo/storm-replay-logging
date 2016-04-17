@@ -1,0 +1,4 @@
+pyleus-env:
+  build: .
+  volumes:
+    - .:/opt/storm-pyleus

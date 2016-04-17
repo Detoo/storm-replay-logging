@@ -1,0 +1,16 @@
+---
+
+name: app
+
+workers: 1
+
+topology:
+  - spout:
+      name: unreliable-spout
+      module: app.unreliable_spout
+
+  - bolt:
+      name: slack-bolt
+      groupings:
+        - shuffle_grouping: unreliable-spout
+      module: app.slack_bolt
