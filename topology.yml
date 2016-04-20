@@ -6,11 +6,12 @@ workers: 1
 
 topology:
   - spout:
-      name: unreliable-spout
-      module: app.unreliable_spout
+      name: my-spout
+#      module: app.unreliable_spout
+      module: app.reliable_spout
 
   - bolt:
       name: slack-bolt
       groupings:
-        - shuffle_grouping: unreliable-spout
+        - shuffle_grouping: my-spout
       module: app.slack_bolt
